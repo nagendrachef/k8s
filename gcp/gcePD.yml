@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: gce-pod
+spec:
+  containers:
+    - image: busybox
+      name: test-con
+      volumeMounts:
+        - name: test-gcepd
+          mountPath: /test-gcepd
+  volumes:
+    - name: test-gcepd
+      gcePersistentDisk:
+          pdName: my-disk
+          fsType: ext4

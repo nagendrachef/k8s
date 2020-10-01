@@ -5,7 +5,7 @@ metadata:
 spec:
    containers:
       - name: testcon
-        image: nginx
+        image: gcr.io/google_containers/test-webserver
         volumeMounts:
            - name: test-volume
              mountPath: /test-pd

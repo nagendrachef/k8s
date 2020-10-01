@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: random-num-gen
+spec:
+  containers:
+    - image: alpine
+      name: alpine
+      command: ["/bin/sh", "-c"]
+      args: ["shuf -i 0-100 -n 1 >> /opt/num.txt"]
+      volumeMounts:
+        - mountPath: /opt
+          name: data-vol
+  volumes:
+    - name: data-vol
+      persistentVolumeClaim:
+         claimName: myclaim

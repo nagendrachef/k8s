@@ -11,6 +11,8 @@ spec:
           mountPath: /test-gcepd
   volumes:
     - name: test-gcepd
+      #persistentVolumeClaim:
+       #  claimName: pvc-gce
       gcePersistentDisk:
-          pdName: my-disk
+        pdName: my-data-disk
           fsType: ext4
